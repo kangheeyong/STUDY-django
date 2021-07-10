@@ -1,0 +1,29 @@
+version: "3"
+
+volumes:
+  mongodata:
+
+services:
+  django:
+    restart: always
+    build: ./django
+    env_file:
+      - .env
+    volumes:
+      - ./django:/app
+    working_dir: /app
+    ports:
+      - "38000:8000"
+    # stdin_open: true # docker run -i
+    # tty: true # docker run -t
+    command: python manage.py runserver 0.0.0.0:8000
+
+  mongodb:
+    restart: always
+    image: mongo:4.2.8
+    env_file:
+        - .env
+    ports:
+        - "37017:27017"
+    volumes:
+        - mongodata:/data/db

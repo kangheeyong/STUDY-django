@@ -1,0 +1,8 @@
+db.sqllite3
+__pycache__
+db.sqlite3
+*.pyc
+.DS_Store
+.idea
+.env_secret
+.vscode
