@@ -2,12 +2,14 @@ version: "3"
 
 volumes:
   mongodata:
+  pgdata:
 
 services:
   django:
     restart: always
     build: ./django
     env_file:
+      - .env_secret
       - .env
     volumes:
       - ./django:/app
@@ -18,12 +20,41 @@ services:
     # tty: true # docker run -t
     command: python manage.py runserver 0.0.0.0:8000
 
+  django_jupyter:
+    restart: always
+    build: ./django
+    env_file:
+      - .env_secret
+      - .env
+    volumes:
+      - ./django:/app
+    working_dir: /app
+    ports:
+      - "38888:8888"
+    # https://stackoverflow.com/questions/59119396/how-to-use-django-3-0-orm-in-a-jupyter-notebook-without-triggering-the-async-con
+    command: env DJANGO_ALLOW_ASYNC_UNSAFE=true ./manage.py shell_plus --notebook
+
+  postgres:
+    restart: always
+    image: postgres:alpine
+    env_file:
+      - .env_secret
+      - .env
+    environment:
+      POSTGRES_PASSWORD: password
+      TZ: "Asia/Seoul"
+    ports:
+      - "35432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
   mongodb:
     restart: always
     image: mongo:4.2.8
     env_file:
-        - .env
+      - .env_secret
+      - .env
     ports:
-        - "37017:27017"
+      - "37017:27017"
     volumes:
-        - mongodata:/data/db
+      - mongodata:/data/db

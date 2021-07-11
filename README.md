@@ -5,10 +5,15 @@
 - `django-admin`
   - make new project: `django-addmin startproject {proejct name}`
   - make new app: `python manage.py startapp {app name}`
+  - migration
+    - `python manage.py makemigrations {app name}`: migration 파일을 만듬
+    - `python manage.py sqlmigrate {app name} {number}`: 명령어 확인
+    - `python manage.py migrate`: 적용
 
 ### documents
 
 - [template grammer](https://docs.djangoproject.com/en/3.2/ref/templates/language/)
+- [forms doc](https://docs.djangoproject.com/en/3.2/topics/forms/)
 
 ### know-how
 

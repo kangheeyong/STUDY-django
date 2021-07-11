@@ -2,7 +2,9 @@ db.sqllite3
 __pycache__
 db.sqlite3
 *.pyc
+.Trash-0
 .DS_Store
 .idea
 .env_secret
 .vscode
+.ipynb_checkpoints
