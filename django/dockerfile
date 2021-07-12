@@ -8,4 +8,5 @@ RUN pip install psycopg2
 RUN pip install django-extensions
 RUN pip install jupyterlab
 RUN pip install django-crispy-forms
+RUN pip install Pillow
 RUN pip install mongoengine
