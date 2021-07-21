@@ -26,6 +26,11 @@
     - Cache Sessions
 - FE frameworks
   - [bootstrap](https://getbootstrap.com), [Foundation](https://get.foundation), [Gestalt](https://pinterest.github.io/gestalt/#/), [Ant Design](https://ant.design), [Atlas Kit](https://atlaskit.atlassian.com/)
+
+## todo-study
+- form <-> models
+- django Signals setting?
+- html form tag에서 GET and POST
 ### todo
 
 - How to Build an E-commerce Website with Django and Python: https://www.youtube.com/watch?v=YZvRrldjf1Y

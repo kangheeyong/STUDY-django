@@ -1,6 +1,7 @@
 db.sqllite3
 __pycache__
 db.sqlite3
+profile_pics
 *.pyc
 .Trash-0
 .DS_Store
